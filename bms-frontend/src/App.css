@@ -1,0 +1,244 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+/* ___________________________________________________________________________________ */
+
+#root {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #1d8fff;
+  min-height: 100vh;
+}
+
+body {
+  background-color: #1d8fff;
+  color: #EEEEEE;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #ffffffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #fffaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(221, 174, 211, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(221, 174, 211, 0.6);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+  background: linear-gradient(135deg, #2a4a5f 0%, #1d8fff 100%);
+  border: 1px solid rgba(101, 148, 177, 0.3);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(101, 148, 177, 0.6);
+  box-shadow: 0 8px 32px rgba(101, 148, 177, 0.2);
+  transform: translateY(-4px);
+}
+
+.read-the-docs {
+  color: #fff;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1d8fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* Selection Styling */
+::selection {
+  background-color: #ffffff;
+  color: #1d8fff;
+}
+
+::-moz-selection {
+  background-color: #ffffff;
+  color: #1d8fff;
+}
+
+/* Link Styling */
+a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #EEEEEE;
+}
+
+/* Button Reset */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Input Focus Styling */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 0 3px rgba(101, 148, 177, 0.2);
+}
+
+/* Utility Classes */
+.text-primary {
+  color: #ffffff;
+}
+
+.text-secondary {
+  color: #fff;
+}
+
+.text-light {
+  color: #EEEEEE;
+}
+
+.bg-primary {
+  background-color: #1d8fff;
+}
+
+.bg-secondary {
+  background-color: #2a4a5f;
+}
+
+.border-accent {
+  border-color: #fff;
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 3px solid rgba(101, 148, 177, 0.3);
+  border-top: 3px solid #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Smooth Transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Container Styling */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(42, 74, 95, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(101, 148, 177, 0.2);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
