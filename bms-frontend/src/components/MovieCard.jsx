@@ -1,36 +1,3 @@
-// import { Link } from "react-router-dom";
-// import { motion } from "framer-motion";
-
-// const MovieCard = ({ movie }) => {
-//   return (
-//     <motion.div
-//       whileHover={{ scale: 1.05 }}
-//       className="bg-[#1c1c1c] rounded-xl overflow-hidden"
-//     >
-//       <img
-//         src={movie.poster}
-//         alt={movie.title}
-//         className="h-[500px] w-full object-cover"
-//       />
-
-//       <div className="p-4">
-//         <h3 className="font-semibold">{movie.title}</h3>
-//         <p className="text-gray-400 text-sm">{movie.genre.join(", ")}</p>
-
-//         <Link
-//           to={`/movie/${movie._id}`}
-//           className="mt-3 inline-block text-red-500"
-//         >
-//           Book Now →
-//         </Link>
-//       </div>
-//     </motion.div>
-//   );
-// };
-
-// export default MovieCard;
-// ________________________________________________________________________________
-
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Ticket, ArrowRight, Clock } from "lucide-react";

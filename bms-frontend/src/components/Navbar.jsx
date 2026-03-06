@@ -1,57 +1,9 @@
-// import { Link } from "react-router-dom";
-// import { useContext } from "react";
-// import { AuthContext } from "../context/AuthContext";
-// import { User, LogOut } from "lucide-react";
-
-// const Navbar = () => {
-//   const { user, logout } = useContext(AuthContext);
-
-//   return (
-//     <nav className="flex justify-between items-center px-8 py-4 bg-[#1a1a1a] shadow-md">
-//       <Link to="/" className="text-2xl font-bold text-red-600">
-//         BookMyShow
-//       </Link>
-
-//       <div className="flex items-center gap-6">
-//         {user ? (
-//           <>
-//             <Link to="/profile" className="flex items-center gap-2">
-//               <User size={18} /> {user.username}
-//             </Link>
-
-//             <button
-//               onClick={logout}
-//               className="flex items-center gap-2 text-red-500"
-//             >
-//               <LogOut size={18} /> Logout
-//             </button>
-//           </>
-//         ) : (
-//           <>
-//             <Link to="/login" className="hover:text-red-500">
-//               Login
-//             </Link>
-//             <Link
-//               to="/signup"
-//               className="bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700"
-//             >
-//               Signup
-//             </Link>
-//           </>
-//         )}
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-// ______________________________________________________________________
-
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { User, LogOut, Film } from "lucide-react";
 import { motion } from "framer-motion";
+import logo from "../assets/top1.png";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -65,9 +17,14 @@ const Navbar = () => {
             <motion.div
               whileHover={{ rotate: [0, -10, 10, -10, 0] }}
               transition={{ duration: 0.5 }}
-              className="p-2 bg-[#1d8fff]/10 rounded-xl group-hover:bg-[#1d8fff]/20 transition-colors"
+              className="p-1 bg-[#1d8fff]/10 rounded-xl group-hover:bg-[#1d8fff]/20 transition-colors"
             >
-              <Film className="w-6 h-6 text-[#1d8fff]" />
+              {/* <Film className="w-6 h-6 text-[#1d8fff]" /> */}
+              <img
+                src={logo}
+                alt="Booking Sage Logo"
+                className="w-15 h-15 object-contain"
+              />
             </motion.div>
             <span className="text-xl font-bold text-[#EEEEEE] group-hover:text-[#1d8fff] transition-colors">
               Booking Sage
