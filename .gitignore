@@ -2,6 +2,7 @@
 node_modules/
 
 # Environment variables
+.gitignore
 .env
 .env.local
 .env.development
