@@ -9,7 +9,7 @@ const MovieCard = ({ movie }) => {
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
-      className="group relative bg-[#0f1629] rounded-2xl overflow-hidden border border-[#1d8fff]/10 hover:border-[#1d8fff]/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-[#1d8fff]/10"
+      className="group relative bg-[#0f1629] rounded-2xl overflow-x-hidden border border-[#1d8fff]/10 hover:border-[#1d8fff]/30 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-[#1d8fff]/10"
     >
       {/* Poster Image */}
       <Link

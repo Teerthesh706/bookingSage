@@ -12,33 +12,6 @@ export const getMovieById = async (req, res) => {
   res.json(movie);
 };
 
-// export const getTheatersByCityAndMovie = async (req, res) => {
-//   const { movieId, city } = req.query;
-
-//   const shows = await Show.find({ movie: movieId }).populate("theater");
-
-//   const filteredShows = shows.filter(
-//     (show) => show.theater.city.toLowerCase() === city.toLowerCase(),
-//   );
-
-//   res.json(filteredShows);
-// };
-
-// ________________________________________________________________
-
-// export const getTheatersByCityAndMovie = async (req, res) => {
-//   const { movieId, city } = req.query;
-
-//   const shows = await Show.find({ movie: movieId }).populate({
-//     path: "theater",
-//     match: { city: new RegExp(`^${city}$`, "i") },
-//   });
-
-//   const filtered = shows.filter((show) => show.theater);
-
-//   res.json(filtered);
-// };
-
 import mongoose from "mongoose";
 
 export const getTheatersByCityAndMovie = async (req, res) => {

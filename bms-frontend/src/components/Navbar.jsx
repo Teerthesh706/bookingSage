@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { User, LogOut, Film } from "lucide-react";
 import { motion } from "framer-motion";
-import logo from "../assets/top1.png";
+import logo from "../assets/logo2.png";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -41,7 +41,7 @@ const Navbar = () => {
                   className="flex items-center gap-2 px-4 py-2 rounded-xl text-[#EEEEEE]/80 hover:text-[#1d8fff] hover:bg-[#1d8fff]/5 transition-all group"
                 >
                   <div className="p-1.5 bg-[#1d8fff]/10 rounded-lg group-hover:bg-[#1d8fff]/20 transition-colors">
-                    <User size={16} />
+                    <User size={25} />
                   </div>
                   <span className="font-medium text-sm hidden sm:inline">
                     {user.username}

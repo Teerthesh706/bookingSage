@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Film, Mail, Lock } from "lucide-react";
+import logo from "../../assets/logo2.png";//bms-frontend\public\top1.png
 
 const Login = () => {
   const { login, authLoading } = useContext(AuthContext);
@@ -78,7 +79,7 @@ const Login = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-center mb-8"
+          className="text-center mb-1"
         >
           <div className="inline-flex items-center gap-3 mb-4">
             <motion.div
@@ -86,13 +87,18 @@ const Login = () => {
               transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
               className="p-3 bg-[#1d8fff]/10 rounded-2xl"
             >
-              <Film className="w-10 h-10 text-[#1d8fff]" />
+              {/* <Film className="w-10 h-10 text-[#1d8fff]" /> */}
+              <img
+                src={logo}
+                alt="Booking Sage Logo"
+                className="w-15 h-15 object-contain"
+              />
             </motion.div>
             <h1 className="text-4xl font-bold text-[#EEEEEE]">Booking Sage</h1>
           </div>
-          <p className="text-[#EEEEEE]/50 text-sm">
+          {/* <p className="text-[#EEEEEE]/50 text-sm">
             Your Gateway to Cinema Magic
-          </p>
+          </p> */}
         </motion.div>
 
         {/* Login Form Card */}
@@ -211,15 +217,6 @@ const Login = () => {
           </div>
         </motion.form>
 
-        {/* Footer Text */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-8 text-[#EEEEEE]/30 text-sm"
-        >
-          🎬 Book your favorite movies in seconds
-        </motion.p>
       </motion.div>
     </div>
   );

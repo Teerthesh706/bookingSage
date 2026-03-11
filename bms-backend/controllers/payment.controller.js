@@ -1,68 +1,4 @@
-// import razorpay from "../config/razorpay.js";
-// import crypto from "crypto";
-// import Show from "../models/show.model.js";
-// import { confirmBooking } from "./show.controller.js";
-
-// export const createOrder = async (req, res) => {
-//   try {
-//     const { showId, seats } = req.body;
-
-//     const show = await Show.findById(showId);
-//     if (!show) return res.status(404).json({ message: "Show not found" });
-
-//     const amount = show.price * seats.length * 100; // Razorpay uses paisa
-
-//     const options = {
-//       amount,
-//       currency: "INR",
-//       receipt: `receipt_${Date.now()}`,
-//     };
-
-//     const order = await razorpay.orders.create(options);
-
-//     res.json({
-//       orderId: order.id,
-//       amount: order.amount,
-//       key: process.env.RAZORPAY_KEY_ID,
-//     });
-//   } catch (error) {
-//     res.status(500).json({ message: "Order creation failed" });
-//   }
-// };
-
-// export const verifyPayment = async (req, res) => {
-//   try {
-//     const {
-//       razorpay_order_id,
-//       razorpay_payment_id,
-//       razorpay_signature,
-//       showId,
-//       seats,
-//     } = req.body;
-
-//     const body = razorpay_order_id + "|" + razorpay_payment_id;
-
-//     const expectedSignature = crypto
-//       .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
-//       .update(body.toString())
-//       .digest("hex");
-
-//     if (expectedSignature !== razorpay_signature) {
-//       return res.status(400).json({ message: "Payment verification failed" });
-//     }
-
-//     // 🔥 If verified → confirm booking
-//     req.body = { showId, seats };
-//     await confirmBooking(req, res);
-//   } catch (error) {
-//     res.status(500).json({ message: "Payment verification failed" });
-//   }
-// };
-
 import { getRazorpayInstance } from "../config/razorpay.js";
-
-// import razorpay from "../config/razorpay.js";
-
 import crypto from "crypto";
 import Show from "../models/show.model.js";
 import Booking from "../models/booking.model.js";
@@ -83,7 +19,6 @@ export const createOrder = async (req, res) => {
 
     const amount = show.price * seats.length * 100; // in paisa
 
-    // const order = await razorpay.orders.create
     const razorpay = getRazorpayInstance();
     const order = await razorpay.orders.create({
       amount,
@@ -102,7 +37,7 @@ export const createOrder = async (req, res) => {
   }
 };
 
-// 🔹 Verify Payment & Confirm Booking
+// Verify Payment & Confirm Booking
 export const verifyPayment = async (req, res) => {
   try {
     const {
@@ -117,7 +52,7 @@ export const verifyPayment = async (req, res) => {
       return res.status(400).json({ message: "Invalid payment data" });
     }
 
-    // 1️⃣ Verify signature
+    //  Verify signature
     const body = `${razorpay_order_id}|${razorpay_payment_id}`;
 
     const expectedSignature = crypto
@@ -129,7 +64,7 @@ export const verifyPayment = async (req, res) => {
       return res.status(400).json({ message: "Payment verification failed" });
     }
 
-    // 2️⃣ Fetch show
+    //  Fetch show
     const show = await Show.findById(showId);
     if (!show) {
       return res.status(404).json({ message: "Show not found" });
@@ -137,7 +72,7 @@ export const verifyPayment = async (req, res) => {
 
     const now = new Date();
 
-    // 3️⃣ Validate seats were locked by this user
+    //  Validate seats were locked by this user
     for (let seat of seats) {
       const lock = show.lockedSeats.find(
         (l) =>
@@ -153,7 +88,7 @@ export const verifyPayment = async (req, res) => {
       }
     }
 
-    // 4️⃣ Move seats to booked
+    //  Move seats to booked
     show.bookedSeats.push(...seats);
 
     // Remove from lockedSeats
@@ -161,7 +96,7 @@ export const verifyPayment = async (req, res) => {
 
     await show.save();
 
-    // 5️⃣ Create Booking Record
+    // Create Booking Record
     const booking = await Booking.create({
       user: req.user._id,
       show: showId,
